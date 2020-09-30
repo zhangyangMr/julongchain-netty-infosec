@@ -242,7 +242,7 @@
   <repositories>
     <repository>
       <id>nexus</id>
-      <url>http://195.168.0.171:8081/repository/maven-public/</url>
+      <url> http://repo1.maven.org/maven2</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
@@ -254,7 +254,7 @@
   <pluginRepositories>
     <pluginRepository>
       <id>nexus</id>
-      <url>http://195.168.0.171:8081/repository/maven-public/</url>
+      <url> http://repo1.maven.org/maven2</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>

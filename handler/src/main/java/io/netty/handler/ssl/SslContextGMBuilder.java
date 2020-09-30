@@ -24,6 +24,7 @@ import javax.net.ssl.SSLException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.security.Provider;
 
 import static io.netty.util.internal.ObjectUtil.checkNotNull;
 
@@ -83,6 +84,8 @@ public final class SslContextGMBuilder {
     }
 
     private final boolean forServer;
+    private SslProvider provider;
+    private Provider sslContextProvider;
     private String[] trustCertCollection;
     private GMCertEntry encCertEntry;
     private GMCertEntry signCertEntry;
@@ -99,6 +102,23 @@ public final class SslContextGMBuilder {
 
     private SslContextGMBuilder(boolean forServer) {
         this.forServer = forServer;
+    }
+
+    /**
+     * The {@link SslContext} implementation to use. {@code null} uses the default one.
+     */
+    public SslContextGMBuilder sslProvider(SslProvider provider) {
+        this.provider = provider;
+        return this;
+    }
+
+    /**
+     * The SSLContext {@link Provider} to use. {@code null} uses the default one. This is only
+     * used with {@link SslProvider#JDK}.
+     */
+    public SslContextGMBuilder sslContextProvider(Provider sslContextProvider) {
+        this.sslContextProvider = sslContextProvider;
+        return this;
     }
 
     /**

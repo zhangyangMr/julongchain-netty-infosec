@@ -26,6 +26,10 @@ import org.junit.Test;
 import javax.net.ssl.SSLEngine;
 
 public class SslContextBuilderTest {
+    @Test
+    public void testkeyManager() throws Exception {
+        testClientContextFromFile(SslProvider.JDK);
+    }
 
     @Test
     public void testClientContextFromFileJdk() throws Exception {

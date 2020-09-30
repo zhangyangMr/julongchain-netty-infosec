@@ -27,6 +27,8 @@ import io.netty.handler.ssl.SslContext;
 import io.netty.handler.ssl.SslContextGMBuilder;
 import io.netty.handler.ssl.util.SelfSignedCertificate;
 
+import java.io.File;
+
 /**
  * Simple SSL chat server modified from {@link TelnetServer}.
  */

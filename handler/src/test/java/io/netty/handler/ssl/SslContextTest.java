@@ -34,6 +34,12 @@ import static org.junit.Assume.assumeNotNull;
 
 public abstract class SslContextTest {
 
+//    @Test(expected = IOException.class)
+//    public void testToX509Certificates() throws Exception {
+//        SslContext.toX509Certificates(new File("/opt/gopath/src/youngz/java_grpc/gm_cert/server.crt"));
+//    }
+
+
     @Test(expected = IOException.class)
     public void testUnencryptedEmptyPassword() throws Exception {
         PrivateKey key = SslContext.toPrivateKey(
@@ -102,7 +108,7 @@ public abstract class SslContextTest {
         String unsupportedCipher = "TLS_DH_anon_WITH_DES_CBC_SHA";
         IllegalArgumentException exception = null;
         try {
-            sslEngine.setEnabledCipherSuites(new String[] {unsupportedCipher});
+            sslEngine.setEnabledCipherSuites(new String[]{unsupportedCipher});
         } catch (IllegalArgumentException e) {
             exception = e;
         }
